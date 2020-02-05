@@ -1,0 +1,23 @@
+this file was created 
+
+# call bashrc file from within this file
+# this code is saying, if .bashrc exists, then execute that code in the file
+# what happend is that as soon as we open up a login shell, and it runs this piece of code, which runs the .bashrc file.
+# and if you run a sub-shell, it is also going to run the .bashrc file. now, we can add all our customization to the .bashrc file
+# and not really have to worry about the .bash_profile file anymore. 
+
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+
+# setting PATH for mysql 
+# /usr/local/mysql Located in system preference > configuration > base directory
+# /bin/ I added it manually
+export PATH=${PATH}:/usr/local/mysql/bin/
+
+
+#GET RID OF THE CUZTOMIZATION
+#you can just remove the statement above. we don't want to remove the file since it has a path for mysql. if there was nothing else then we can move it to anothere directory, doing:
+#josemanuel at Joses-MacBook-Pro in ~$ mv .bashrc DotFiles/
+#also we have to move .bash_profile, josemanuel at Joses-MacBook-Pro in ~$ mv .bash_profile DotFiles/

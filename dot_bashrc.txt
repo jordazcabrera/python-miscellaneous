@@ -1,0 +1,61 @@
+# CUSTOMIZE THE PROMPT IN TERMINAL - EXAMPLE:
+# PS1= "-> ";
+# export PS1;
+# to see that customization, we can either quit the terminal and open it back up to see those changes
+# or we can source the file, Joses-MacBook-Pro:~ josemanuel$: source .bashrc
+
+# SPECIAL CHARACTERS:
+# \h the hostname up to the first .(dot)
+# \n newline
+# \s the name of the shell
+# \t the current time in 24hrs format
+# \u the username of the current user
+# \w the current working directory (provides the full PATH)
+# \W the basename of the current working directory (provides the last directory in the PATH)
+
+# MY PROMPT CUSTOMIZATION
+# 1. specify variables for colors using tput
+# 2. in the PS1 variable, instead of the command substitution $(), we are subtituing in the vartiables ${}
+# 3. this is how prompt looked like before (default setting),  Joses-MacBook-Pro:~ josemanuel$ cd
+# 4. this is how prompt looks like after this change, josemanuel at Joses-MacBook-Pro in Desktop$
+
+orange=$(tput setaf 166);
+yellow+=$(tput setaf 228);
+green=$(tput setaf 71);
+white=$(tput setaf 15);
+bold=$(tput bold);
+reset=$(tput sgr0);
+
+PS1="\[${bold}\]\n"; # i want everything to be bold and then i start out with a new line \n
+PS1+="\[${orange}\]\u"; # in this new line i want the username to be orange
+PS1+="\[${white}\] at "; #
+PS1+="\[${yellow}\]\h"; # host
+PS1+="\[${white}\] in ";
+PS1+="\[${green}\]\W"; # working directory
+#PS1+="\n"; # new line at the end but i am commenting it out so the $ is at the end of the prompt
+PS1+="\[${white}\]\$ \[${reset}\]"; # reset color
+export PS1;
+
+
+#MY PROMPT CUSTOMIZATION (SAME AS ABOVE BUT WITHOUT ASSIGNING VARIABLES TO THE COLORS)
+# PS1= "\[$(tput setaf 166)\]\u";
+# PS1+= "\[$(tput setaf 228)\]@\h ";
+# PS1+= "\[$(tput setaf 71)\]\W -> ";
+# PS1+= "\[$(tput sgr0)\] "; # sgr0 resests the formatting so the grees doesn't leak over into the command and output
+# export PS1; 
+
+# WHAT IS COMMAND SUBSTITUTION?
+# allows the output of a command to replace the command itself. Command substitution occurs when a command is enclosed as follows:
+# $(command) or `command`
+# if we put a command inside the parenthesis it is going to give us the result of that command and replace the $ and parenthesis with the result of that command
+# example: 
+# Joses-MacBook-Pro:~ josemanuel$ echo "Your current directory is $(pwd)"
+# Your current directory is /Users/josemanuel 
+
+# WHAT IS THE TPUT COMMAND?
+# changes the foreground text color
+# example:
+# Joses-MacBook-Pro:~ josemanuel$ echo "$(tput setaf 166) This is orange"
+# This is orange (literally this is orange)
+# Joses-MacBook-Pro:~ josemanuel$  (literally this is orange)
+
