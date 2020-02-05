@@ -1,0 +1,11 @@
+this is a brief how-to on sending your work and how it will be scored. the action happens on hills. to turn in a program -- let's call it homework.py (the name doesn't matter) -- you could use this command:
+
+  $ ~abrick/send homework.py
+
+a lot of things can potentially go wrong here, so read the program's response carefully to see if the submission worked. on this topic see the course policies on "assignments".
+
+next week, when there are for the first time homeworks to review, to get your peer review assignments you will also run this program:
+
+  $ ~abrick/tally
+
+in future weeks, "tally" will also display the peer review comments you receive. you will review peer work by creating a peer review file -- let's call it reviews.pr (the name doesn't matter) -- and submitting it by using ~abrick/send in the same way as above. on this topic see the course policies on "peer review".
